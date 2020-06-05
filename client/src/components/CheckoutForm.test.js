@@ -12,13 +12,25 @@ test("form header renders", () => {
 });
 
 test("form shows success message on submit with form details", () => {
-  const { getAllByTestId } = render(<CheckoutForm />);
+  const { getByTestId, getByText } = render(<CheckoutForm />);
+  //this is where we want to test the inputs
+  const firstname = getByText(/first name/i);
+  const lastname = getByText(/last name/i);
+  const address = getByText(/address/i);
+  const city = getByText(/city/i);
+  const state = getByText(/state/i);
+  const zip = getByText(/zip/i);
 
-  const success = getAllByTestId(/success message/i);
+  //fireEvent.change(success, { value: "successMessage" });
+  fireEvent.change(firstname, { value: "firstname" });
+  fireEvent.change(lastname, { value: "lastname" });
+  fireEvent.change(address, { value: "address" });
+  fireEvent.change(city, { value: "city" });
+  fireEvent.change(state, { value: "state" });
+  fireEvent.change(zip, { value: "zip" });
+  fireEvent.click(getByText(/checkout!/i));
 
-  fireEvent.change(success, { value: "successMessage" });
+  const success = getByTestId("successFirstName");
 
-  expect(success.value).toBe(/"successMessage"/i);
-
-  fireEvent.click(q(/submit!/i));
+  expect(success).toBeInTheDocument("successFirstName");
 });

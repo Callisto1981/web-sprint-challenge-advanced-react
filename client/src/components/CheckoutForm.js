@@ -67,7 +67,7 @@ const CheckoutForm = props => {
           Zip:
           <input name="zip" value={values.zip} onChange={handleChanges} />
         </label>
-        <button>Checkout</button>
+        <button>Checkout!</button>
       </form>
 
       {showSuccessMessage && (
@@ -78,7 +78,7 @@ const CheckoutForm = props => {
           <p>Your new green friends will be shipped to:</p>
           <br />
           <br />
-          <p>
+          <p data-testid="successFirstName">
             {values.firstName} {values.lastName}
           </p>
           <p>{values.address}</p>
