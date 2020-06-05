@@ -30,13 +30,37 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain how to build stateful class components.
 
+A class component is built using "extends React.Component" feature that is used with a "constructor" method and a "super" method that contain the "state" within. Below that but right above the "return" method of the component, you need to place a "render" method that will host the JSX that you want to return within the "return" method.
+
 2. Describe the different phases of the component lifecycle.
+
+ComponentDidMount, ComponentDidUpdate, ComponentWillUnmount.
 
 3. Demonstrate an understanding of class component lifecycle methods.
 
+ComponentDidMount is when the component did mounted to the app. The component will then update (componentDidUpdate) with the new information. After that the component will unmount (componentWillUnmount) inwhich the component will leave the DOM.
+
 4. Define stateful logic.
 
+Stateful logic is anything that has to do with changing of the state as far as methods go.
+
 5. Describe how to test a React component with React Testing Library.
+
+First you have to import the "render" method from @testing-library/react.
+
+Then you have to import the component you want to test.
+
+Use the test() method.
+
+In the test() method you must give it a name and a function that will take the directions of the test.
+
+Wrap the component in the render method that is imported from @testing-library.
+
+Destruct the render method by using one of many methods like the "getByText" method.
+
+On the next line use the "getByText" method and add the text you want to search for with in the component. Make this into a new variable.
+
+On the next line call the expect() method and pass in the name of your new variable. Chain another method call "toBeInDocument".
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
